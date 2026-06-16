@@ -45,7 +45,7 @@
 
 2) Connect PCB via USB. Hold down reset button to enter bootloader
 
-3) Under 'Local file' open firmware/void_voidhhkb_via.bin. Everything else can be left as default (MCU should be ATmega32U4)
+3) Under 'Local file' open firmware/void_voidhhkb_via.bin. Everything else can be left as default (MCU is STM32F072 / STM32 DFU — QMK Toolbox auto-detects it in bootloader mode)
 
 4) Click Flash!
 
