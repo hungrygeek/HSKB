@@ -2,6 +2,8 @@
 
 ![Alt text](Images/image_5.webp)
 
+> **Fork notice:** This is a community fork of the original **HSKB (Happy Sabi Keyboard)** by Dev01-D. The original upstream repository is no longer available, so this copy is maintained at <https://github.com/hungrygeek/HSKB> under the project's MIT license. All original credits below are retained.
+
 
 
 ## About the HSKB
@@ -35,18 +37,18 @@ If you use or modify this project, please consider supporting **Andy's Man Club*
 
 ## What's Included
 
-- [PCB design files (KiCad)](https://github.com/Dev01-D/HSKB/tree/main/PCB%20Files)
-- [Case design files (STEP, STL for 3D printing)](https://github.com/Dev01-D/HSKB/tree/main/HSKB%20STL)
-- [HS Firmware configuration (QMK/VIA-compatible)](https://github.com/Dev01-D/HSKB/tree/main/PCB%20Files/VoidHHKB-Hotswap/firmware)
-- [Solder Firmware configuration (QMK/VIA-compatible)](https://github.com/Dev01-D/HSKB/tree/main/PCB%20Files/VoidHHKB-Solder/firmware)
+- [PCB design files (KiCad)](https://github.com/hungrygeek/HSKB/tree/main/PCB%20Files)
+- [Case design files (STEP, STL for 3D printing)](https://github.com/hungrygeek/HSKB/tree/main/HSKB%20STL)
+- [HS Firmware configuration (QMK/VIA-compatible)](https://github.com/hungrygeek/HSKB/tree/main/PCB%20Files/VoidHHKB-Hotswap/firmware)
+- [Solder Firmware configuration (QMK/VIA-compatible)](https://github.com/hungrygeek/HSKB/tree/main/PCB%20Files/VoidHHKB-Solder/firmware)
 
 
 ## Getting Started
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/Dev01-D/hskb.git
-    cd hskb
+    git clone https://github.com/hungrygeek/HSKB.git
+    cd HSKB
     ```
 
 2. **Explore the design files:**
