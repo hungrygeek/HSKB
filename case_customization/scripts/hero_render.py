@@ -95,8 +95,8 @@ def shot(direction, target, ortho, res, path):
     bpy.context.view_layer.update(); sc.render.filepath = path
     bpy.ops.render.render(write_still=True); print("RENDERED", path)
 
-# full hero, from the FRONT (+Y) elevated, viewed from the user's-right (-X)
-shot((-0.35, 1.0, 0.6), center, maxdim * 1.12, (1700, 1200), OUT + "_hero.png")
-# SSKB close-up (user's front-right of the top: X-min, Y-max)
-ssk = Vector((mnt.x + 24, mxt.y - 10, mxt.z))
-shot((-0.5, 1.0, 0.65), ssk, 80, (1500, 1100), OUT + "_sskb.png")
+# full hero, from the FRONT (+Y) elevated, viewed slightly from the logo (right) side
+shot((0.35, 1.0, 0.6), center, maxdim * 1.12, (1700, 1200), OUT + "_hero.png")
+# SSKB close-up (front-right of the top: X-max, Y-max)
+ssk = Vector((mxt.x - 24, mxt.y - 10, mxt.z))
+shot((0.4, 1.0, 0.62), ssk, 80, (1500, 1100), OUT + "_sskb.png")

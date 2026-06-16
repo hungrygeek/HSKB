@@ -14,6 +14,8 @@ DEPTH = float(argv[4]) if len(argv) > 4 else 0.4
 CXO = float(argv[5]) if len(argv) > 5 else 27.0
 CYO = float(argv[6]) if len(argv) > 6 else 9.0
 TW = float(argv[7]) if len(argv) > 7 else 32.0
+ROTZ = float(argv[8]) if len(argv) > 8 else 0.0
+XSIDE = argv[9] if len(argv) > 9 else "R"   # R = X-max side, L = X-min side
 
 bpy.ops.wm.read_factory_settings(use_empty=True)
 try:
@@ -40,10 +42,10 @@ tco = [txt.matrix_world @ Vector(c) for c in txt.bound_box]
 cur_w = max(p.x for p in tco) - min(p.x for p in tco)
 s = TW / cur_w
 txt.scale = (s, s, 1.0)
-txt.rotation_euler = (0, 0, math.radians(180))   # so it reads upright to the front user
+txt.rotation_euler = (0, 0, math.radians(ROTZ))
 
-# position over the USER's FRONT-RIGHT border (front = spacebar edge = +Y; user's right = -X)
-cx = mn[0] + CXO
+# front = spacebar edge = +Y (mx[1]); XSIDE chooses which X end
+cx = (mx[0] - CXO) if XSIDE == "R" else (mn[0] + CXO)
 cy = mx[1] - CYO
 cz = mx[2] - DEPTH + 1.0
 txt.location = (cx, cy, cz)
@@ -116,7 +118,7 @@ rf((cx, cy, mx[2] + 100), TW * 1.8, OUT_PREFIX + "_top.png")          # top-down
 # full-board view from the FRONT (+Y) elevated, matching the product photo angle
 bx = (mn[0] + mx[0]) / 2; by = (mn[1] + mx[1]) / 2; W = mx[0] - mn[0]; D = mx[1] - mn[1]
 tgt.location = Vector((bx, by, mx[2]))
-cam.location = Vector((bx - 0.25 * W, mx[1] + 1.3 * D, mx[2] + 1.0 * D)); cd.ortho_scale = W * 1.12
+cam.location = Vector((bx + 0.30 * W, mx[1] + 1.4 * D, mx[2] + 0.95 * D)); cd.ortho_scale = W * 1.12
 sc.render.resolution_x = 1700; sc.render.resolution_y = 1150
 bpy.context.view_layer.update(); sc.render.filepath = OUT_PREFIX + "_front.png"
 bpy.ops.render.render(write_still=True); print("RENDERED", OUT_PREFIX + "_front.png")
